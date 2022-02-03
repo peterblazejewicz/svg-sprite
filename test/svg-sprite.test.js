@@ -133,7 +133,7 @@ describe('svg-sprite', () => {
     });
 
     // Test the minimum configuration
-    [testConfigs.DEFAULT, testConfigs.WITHOUT_DIMS].forEach(testConfig => {
+    for (const testConfig of [testConfigs.DEFAULT, testConfigs.WITHOUT_DIMS]) {
         describe(`${testConfig.name}: with minimum configuration and ${testConfig.files.length} SVG files`, () => {
             let spriter = null;
             let data = null;

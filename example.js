@@ -79,10 +79,8 @@ addFixtureFiles(spriter, files).compile({
         }
     }
 }, (error, result) => {
-    for (const type in result.css) {
-        if (Object.prototype.hasOwnProperty.call(result.css, type)) {
-            fs.mkdirSync(path.dirname(result.css[type].path), { recursive: true });
-            fs.writeFileSync(result.css[type].path, result.css[type].contents);
-        }
+    for (const type of Object.values(result.css)) {
+        fs.mkdirSync(path.dirname(type.path), { recursive: true });
+        fs.writeFileSync(type.path, type.contents);
     }
 });

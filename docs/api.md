@@ -58,11 +58,11 @@ spriter.add(
 // ====================================================================
 spriter.compile((error, result, data) => {
     // Run through all files that have been created for the `css` mode
-    for (const type in result.css) {
+    for (const type of Object.values(result.css)) {
         // Recursively create directories as needed
-        fs.mkdirSync(path.dirname(result.css[type].path), { recursive: true });
+        fs.mkdirSync(path.dirname(type.path), { recursive: true });
         // Write the generated resource to disk
-        fs.writeFileSync(result.css[type].path, result.css[type].contents);
+        fs.writeFileSync(type.path, type.contents);
     }
 });
 ```
@@ -122,9 +122,9 @@ glob.sync('**/*.svg', { cwd }, (err, files) => {
     })
 
     spriter.compile((error, result, data) => {
-        for (const type in result.css) {
-            fs.mkdirSync(path.dirname(result.css[type].path), { recursive: true });
-            fs.writeFileSync(result.css[type].path, result.css[type].contents);
+        for (const type of Object.values(result.css)) {
+            fs.mkdirSync(path.dirname(type.path), { recursive: true });
+            fs.writeFileSync(type.path, type.contents);
         }
     });
 });
