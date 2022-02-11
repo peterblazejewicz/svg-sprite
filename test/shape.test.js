@@ -23,7 +23,7 @@ const expectations = [{
 }];
 
 describe('shape', () => {
-    expectations.forEach(expectation => {
+    for (const expectation of expectations) {
         it(`should calculate the dimensions if the ${expectation.svg} does not contain viewBox or height/width properties (${expectation.result.width}x${expectation.result.height})`, done => {
             const spriter = new SVGSpriter({
                 shape: {
@@ -62,5 +62,5 @@ describe('shape', () => {
                 }
             });
         });
-    });
+    }
 });

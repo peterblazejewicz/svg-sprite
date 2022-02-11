@@ -58,13 +58,14 @@ const spriter = new SVGSpriter({
  * @return {SVGSpriter}                 Spriter instance
  */
 function addFixtureFiles(spriter, files) {
-    files.forEach(file => {
+    for (const file of files) {
         spriter.add(
             path.resolve(path.join(cwd, file)),
             file,
             fs.readFileSync(path.join(cwd, file), 'utf-8')
         );
-    });
+    }
+
     return spriter;
 }
 

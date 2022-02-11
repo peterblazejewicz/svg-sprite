@@ -483,7 +483,7 @@ describe('svg-sprite', () => {
                 });
             });
         });
-    });
+    }
 
     describe(`with centered alignment and ${align.length} SVG files`, () => {
         let spriter = null;
